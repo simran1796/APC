@@ -1,0 +1,28 @@
+#include<stdio.h>
+#include<stdlib.h>
+int binary(int *a,int n,int i)
+{
+int l=0,h=n-1;
+while(l<=h)
+{
+ int m=(l+h)/2;
+ if(a[m]<i)
+ l=m+1;
+ else if(a[m]>i)
+ h=m-1;
+ else
+ return m; 
+}
+return -1;
+}
+int main()
+{
+int n,ii,p;
+scanf("%d",&n);
+int *a=(int*) malloc(n*sizeof(int));
+for(int i=0;i<n;i++)
+scanf("%d",&a[i]);
+scanf("%d",&ii);
+printf("%d",binary(a,n,ii));
+return 0;
+}
